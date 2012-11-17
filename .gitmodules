@@ -1,0 +1,3 @@
+[submodule "application/packages/auth"]
+	path = application/packages/auth
+	url = git@github.com:johnathancroom/Croomy_auth.git

@@ -358,5 +358,16 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
+/*
+|--------------------------------------------------------------------------
+| HMVC Locations
+|--------------------------------------------------------------------------
+|
+| Locations where HMVC libraries are loaded.
+|
+*/
+$config['modules_locations'] = array(APPPATH.'packages/' => '../packages/');
+
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
