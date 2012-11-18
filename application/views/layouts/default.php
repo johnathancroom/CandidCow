@@ -21,7 +21,7 @@
   <? if(isset($user)): ?>
     <div class="admin">
       Hello, <?= $user['username'] ?>.
-      <?= anchor('admin/entries', 'Entries') ?>
+      <?= anchor('entries', 'Entries') ?>
       <?= anchor('auth/logout', 'Logout') ?>
     </div>
   <? endif; ?>

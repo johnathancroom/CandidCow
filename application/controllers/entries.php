@@ -24,7 +24,7 @@ class Entries extends MY_Controller {
       if($this->entries_model->insert($post))
       {
         $this->session->set_flashdata('success', 'Entry successfully created.');
-        redirect('admin/entries');
+        redirect('entries');
       }
     }
 
@@ -41,7 +41,7 @@ class Entries extends MY_Controller {
       if($this->entries_model->update($id, $post))
       {
         $this->session->set_flashdata('success', 'Entry successfully saved.');
-        redirect('admin/entries');
+        redirect('entries');
       }
     }
 
@@ -60,7 +60,7 @@ class Entries extends MY_Controller {
       if($this->entries_model->delete($id))
       {
         $this->session->set_flashdata('success', 'Entry successfully deleted.');
-        redirect('admin/entries');
+        redirect('entries');
       }
     }
 
