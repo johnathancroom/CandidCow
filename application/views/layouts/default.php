@@ -5,11 +5,21 @@
   <title><?= $template['title'] ?> | CandidCow</title>
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
 
-  <? if(isset($display_entry['css'])): ?>
-    <style type="text/css">
+  <style type="text/css">
+    <? if(isset($display_entry['css'])): ?>
       <?= $display_entry['css']; ?>
-    </style>
-  <? endif; ?>
+    <? endif; ?>
+
+    .logo {
+      color: <?= $logo_color ?>;
+    }
+    footer a:hover {
+      color: <?= $logo_color ?>;
+    }
+    a {
+      color: <?= $logo_color ?>;
+    }
+  </style>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $template['metadata'] ?>
