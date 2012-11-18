@@ -11,6 +11,7 @@
     </style>
   <? endif; ?>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $template['metadata'] ?>
 </head>
 <body>
