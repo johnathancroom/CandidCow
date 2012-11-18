@@ -30,10 +30,7 @@ a {
 }
 
 .post-preview {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-right: 40px;
+  margin-left: -20px;
   position: absolute;
   top: 53px;
   width: 100%;
