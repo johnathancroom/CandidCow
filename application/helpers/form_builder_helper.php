@@ -41,8 +41,6 @@ function day_select_options() {
 }
 
 function build_form($array) {
-  $output = '';
-
   foreach($array as $field)
   {
     # Creating missing attributes array

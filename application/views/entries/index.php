@@ -6,6 +6,7 @@
     <li>
       <?= date('d F Y', strtotime($entry['date'])) ?>
       <?= anchor('entries/edit/'.$entry['id'], 'Edit') ?>
+      <?= anchor('entries/preview/'.$entry['id'], 'Preview') ?>
       <?= anchor('entries/delete/'.$entry['id'], 'Delete') ?>
     </li>
   <? endforeach; ?>

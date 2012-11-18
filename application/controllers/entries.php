@@ -33,41 +33,76 @@ class Entries extends MY_Controller {
     $this->_render('create', $data);
   }
 
-  function edit($id) {
-    $post = $this->input->post(NULL, TRUE);
-
-    if($post)
+  function edit($id = NULL) {
+    if(isset($id))
     {
-      if($this->entries_model->update($id, $post))
+      if($post = $this->input->post(NULL, TRUE))
       {
-        $this->session->set_flashdata('success', 'Entry successfully saved.');
-        redirect('entries');
+        if($this->entries_model->update($id, $post))
+        {
+          $this->session->set_flashdata('success', 'Entry successfully saved.');
+          redirect('entries');
+        }
       }
+
+      $entry = $this->entries_model->get($id);
+      if(empty($entry))
+      {
+        show_404();
+      }
+
+      $this->load->helper(array('form', 'form_builder'));
+      $data['form'] = $this->_render('_form', array('entry' => $entry), FALSE);
+      $this->_render('edit', $data);
     }
-
-    $entry = $this->entries_model->get($id);
-
-    $this->load->helper(array('form', 'form_builder'));
-    $data['form'] = $this->_render('_form', array('entry' => $entry), FALSE);
-    $this->_render('edit', $data);
+    else
+    {
+      show_404();
+    }
   }
 
-  function delete($id) {
-    $post = $this->input->post(NULL, TRUE);
-
-    if($post)
+  function preview($id = NULL) {
+    if(isset($id))
     {
-      if($this->entries_model->delete($id))
+      $data['display_entry'] = $this->entries_model->get($id);
+      if(empty($data['display_entry']))
       {
-        $this->session->set_flashdata('success', 'Entry successfully deleted.');
-        redirect('entries');
+        show_404();
       }
+
+      $this->_render('home/index', $data, TRUE, FALSE);
     }
+    else
+    {
+      show_404();
+    }
+  }
 
-    $entry = $this->entries_model->get($id);
+  function delete($id = NULL) {
+    if(isset($id))
+    {
+      if($post = $this->input->post(NULL, TRUE))
+      {
+        if($this->entries_model->delete($id))
+        {
+          $this->session->set_flashdata('success', 'Entry successfully deleted.');
+          redirect('entries');
+        }
+      }
 
-    $this->load->helper(array('form', 'form_builder'));
-    $this->_render('delete', array('entry' => $entry));
+      $entry = $this->entries_model->get($id);
+      if(empty($entry))
+      {
+        show_404();
+      }
+
+      $this->load->helper(array('form', 'form_builder'));
+      $this->_render('delete', array('entry' => $entry));
+    }
+    else
+    {
+      show_404();
+    }
   }
 
 }
