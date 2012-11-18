@@ -4,19 +4,26 @@
   <meta charset="utf-8">
   <title><?= $template['title'] ?> | Lugnuts</title>
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
+
+  <? if(isset($display_entry['css'])): ?>
+    <style type="text/css">
+      <?= $display_entry['css']; ?>
+    </style>
+  <? endif; ?>
+
   <?= $template['metadata'] ?>
 </head>
 <body>
   <div class="logo">
-    Lugnuts
+    <?= anchor('', 'Lugnuts') ?>
   </div>
 
   <? if(isset($user)): ?>
-    <div>
-      Hello, <?= $user['username'] ?>. <?= anchor('auth/logout', 'Logout') ?>
+    <div class="admin">
+      Hello, <?= $user['username'] ?>.
+      <?= anchor('admin/entries', 'Entries') ?>
+      <?= anchor('auth/logout', 'Logout') ?>
     </div>
-
-    <hr>
   <? endif; ?>
 
   <?

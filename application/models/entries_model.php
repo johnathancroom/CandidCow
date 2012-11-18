@@ -25,6 +25,13 @@ class Entries_model extends CI_Model {
     }
   }
 
+  function today() {
+    $entry = $this->db->get_where('entries', array('date' => date('Y-m-d')))->row_array();
+    $entry = $this->_post_retrieve($entry);
+
+    return $entry;
+  }
+
   function insert($array) {
     if($this->croomy_auth->is_logged_in())
     {

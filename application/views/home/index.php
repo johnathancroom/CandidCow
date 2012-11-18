@@ -1,11 +1,11 @@
-<section class="post">
-  <div class="text">
-    <blockquote>
-      &ldquo;You can't step into the same river twice.&rdquo;
-      <footer>&ndash;Heraclitus</footer>
-    </blockquote>
-  </div>
-</section>
+<? if(isset($display_entry['html'])): ?>
+  <?= $display_entry['html'] ?>
+<? else: ?>
+  <blockquote>
+    &ldquo;You can’t always have something clever to say.&rdquo;
+    <footer>&ndash;Lugnuts</footer>
+  </blockquote>
+<? endif; ?>
 
 <footer>
   <div>
