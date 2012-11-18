@@ -20,7 +20,7 @@
     {
       foreach($flashdata as $key => $flash)
       {
-        if(in_array($key, array('alert', 'error', 'notice')) && $flash != NULL)
+        if(in_array($key, array('alert', 'error', 'notice', 'success')) && $flash != NULL)
         {
           ?>
           <div class="flash_<?= $key ?>"><?= $flash ?></div>

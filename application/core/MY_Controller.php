@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
-  function _render($view, $data = array()) {
+  function _render($view, $data = array(), $layout = TRUE, $auto_find = TRUE) {
     $this->load->helper('url');
     $this->load->library('template');
 
@@ -15,10 +15,32 @@ class MY_Controller extends CI_Controller {
     $data['flashdata'] = array(
       'error' => $this->session->flashdata('error'),
       'alert' => $this->session->flashdata('alert'),
-      'notice' => $this->session->flashdata('notice')
+      'notice' => $this->session->flashdata('notice'),
+      'success' => $this->session->flashdata('success')
     );
 
-    $this->template->build($this->router->fetch_class() . '/' . $view, $data);
+    if($layout)
+    {
+      if($auto_find)
+      {
+        return $this->template->build($this->router->fetch_directory() . $this->router->fetch_class() . '/' . $view, $data);
+      }
+      else
+      {
+        return $this->template->build($view, $data);
+      }
+    }
+    else
+    {
+      if($auto_find)
+      {
+        return $this->template->load_view($this->router->fetch_directory() . $this->router->fetch_class() . '/' . $view, $data);
+      }
+      else
+      {
+        return $this->template->load_view($view, $data);
+      }
+    }
   }
 
   function _require_login() {

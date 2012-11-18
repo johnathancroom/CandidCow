@@ -2,9 +2,9 @@
 
 class Home extends MY_Controller {
 
-	public function index()
-	{
-		$this->_render('index');
-	}
+  function index()
+  {
+    $this->_render('index');
+  }
 
 }
