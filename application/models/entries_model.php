@@ -73,14 +73,17 @@ class Entries_model extends CI_Model {
   }
 
   function _post_retrieve($entry) {
-    $explode = explode('-', $entry['date']);
-    $entry['date_pieces'] = array(
-      'year' => $explode[0],
-      'month' => $explode[1],
-      'day' => $explode[2]
-    );
+    if(!isset($entry))
+    {
+      $explode = explode('-', $entry['date']);
+      $entry['date_pieces'] = array(
+        'year' => $explode[0],
+        'month' => $explode[1],
+        'day' => $explode[2]
+      );
 
-    return $entry;
+      return $entry;
+    }
   }
 
   function _prepare_columns($array) {

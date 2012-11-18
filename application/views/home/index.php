@@ -3,7 +3,7 @@
 <? else: ?>
   <blockquote>
     &ldquo;You can’t always have something clever to say.&rdquo;
-    <footer>&ndash;Lugnuts</footer>
+    <footer>&ndash;CandidCow</footer>
   </blockquote>
 <? endif; ?>
 

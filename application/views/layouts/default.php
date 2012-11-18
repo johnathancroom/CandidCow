@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?= $template['title'] ?> | Lugnuts</title>
+  <title><?= $template['title'] ?> | CandidCow</title>
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
 
   <? if(isset($display_entry['css'])): ?>
@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="logo" style="color: <?= $logo_color; ?>">
-    <?= anchor('', 'Lugnuts') ?>
+    <?= anchor('', 'CandidCow') ?>
   </div>
 
   <? if(isset($user)): ?>
