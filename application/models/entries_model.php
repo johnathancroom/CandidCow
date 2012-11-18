@@ -73,7 +73,7 @@ class Entries_model extends CI_Model {
   }
 
   function _post_retrieve($entry) {
-    if(!isset($entry))
+    if(isset($entry['date']))
     {
       $explode = explode('-', $entry['date']);
       $entry['date_pieces'] = array(
