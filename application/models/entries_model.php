@@ -36,10 +36,21 @@ class Entries_model extends CI_Model {
     }
   }
 
-  function update($array) {
+  function update($id, $array) {
     if($this->croomy_auth->is_logged_in())
     {
-      return $this->db->where('id', $array['id'])->update('entries', $this->_prepare_columns($array));
+      return $this->db->where('id', $id)->update('entries', $this->_prepare_columns($array));
+    }
+    else
+    {
+      show_404();
+    }
+  }
+
+  function delete($id) {
+    if($this->croomy_auth->is_logged_in())
+    {
+      return $this->db->delete('entries', array('id' => $id));
     }
     else
     {

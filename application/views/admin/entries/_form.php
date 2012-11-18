@@ -2,12 +2,6 @@
   <?
     $fields = array(
       array(
-        'type' => 'hidden',
-        'attributes' => array(
-          'id' => (isset($entry['id'])) ? $entry['id'] : ''
-        )
-      ),
-      array(
         'type' => 'label',
         'attributes' => array(
           'value' => 'Date'
