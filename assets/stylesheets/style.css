@@ -29,6 +29,16 @@ a {
   padding: 10px;
 }
 
+.post-preview {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 40px;
+  position: absolute;
+  top: 53px;
+  width: 100%;
+}
+
 @font-face {
     font-family: 'desyrelregular';
     src: url('/assets/fonts/desyrel-webfont.eot');

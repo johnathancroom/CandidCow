@@ -76,3 +76,20 @@
     build_form($fields);
   ?>
 <?= form_close() ?>
+
+<div class="post-preview"></div>
+<style type="text/css" class="post-preview-styles"></style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(".post-preview").html($("#html").val())
+  $(".post-preview-styles").html($("#css").val())
+
+  $("#html").keyup(function() {
+    $(".post-preview").html($(this).val())
+  })
+
+  $("#css").keyup(function() {
+    $(".post-preview-styles").html($(this).val())
+  })
+</script>
