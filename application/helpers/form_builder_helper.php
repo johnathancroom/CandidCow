@@ -68,6 +68,10 @@ function build_form($array) {
     {
       echo form_input($field['attributes']);
     }
+    elseif($field['type'] == 'hidden')
+    {
+      echo form_hidden($field['attributes']);
+    }
     elseif($field['type'] == 'textarea')
     {
       # Defaults

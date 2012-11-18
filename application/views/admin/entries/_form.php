@@ -2,6 +2,12 @@
   <?
     $fields = array(
       array(
+        'type' => 'hidden',
+        'attributes' => array(
+          'id' => (isset($entry['id'])) ? $entry['id'] : ''
+        )
+      ),
+      array(
         'type' => 'label',
         'attributes' => array(
           'value' => 'Date'
@@ -11,7 +17,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_month',
-          'value' => date('m')
+          'value' => (isset($entry['date_pieces']['month'])) ? $entry['date_pieces']['month'] : date('m')
         ),
         'options' => month_select_options(),
         'prefix' => '<div>'
@@ -20,7 +26,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_day',
-          'value' => date('d')
+          'value' => (isset($entry['date_pieces']['day'])) ? $entry['date_pieces']['day'] : date('d')
         ),
         'options' => day_select_options()
       ),
@@ -28,7 +34,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_year',
-          'value' => date('Y')
+          'value' => (isset($entry['date_pieces']['year'])) ? $entry['date_pieces']['year'] : date('Y')
         ),
         'options' => year_select_options(2005, 2020),
         'suffix' => '</div>'
@@ -44,7 +50,7 @@
         'type' => 'textarea',
         'attributes' => array(
           'name' => 'html',
-          'value' => 'Put yer html here'
+          'value' => (isset($entry['html'])) ? $entry['html'] : 'Put yer HTML here.'
         ),
         'prefix' => '<div>',
         'suffix' => '</div>'
@@ -60,7 +66,7 @@
         'type' => 'textarea',
         'attributes' => array(
           'name' => 'css',
-          'value' => 'Put yer css here'
+          'value' => (isset($entry['css'])) ? $entry['css'] : 'Put yer CSS here'
         ),
         'prefix' => '<div>',
         'suffix' => '</div>'

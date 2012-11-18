@@ -22,7 +22,7 @@ class Entries extends MY_Controller {
     {
       if($this->entries_model->insert($post))
       {
-        $this->session->set_flashdata('notice', 'Entry successfully created.');
+        $this->session->set_flashdata('success', 'Entry successfully created.');
         redirect('admin/entries');
       }
     }
@@ -30,6 +30,25 @@ class Entries extends MY_Controller {
     $this->load->helper(array('form', 'form_builder'));
     $data['form'] = $this->_render('_form', NULL, FALSE);
     $this->_render('create', $data);
+  }
+
+  function edit($id) {
+    $post = $this->input->post(NULL, TRUE);
+
+    if($post)
+    {
+      if($this->entries_model->update($post))
+      {
+        $this->session->set_flashdata('success', 'Entry successfully saved.');
+        redirect('admin/entries');
+      }
+    }
+
+    $entry = $this->entries_model->get($id);
+
+    $this->load->helper(array('form', 'form_builder'));
+    $data['form'] = $this->_render('_form', array('entry' => $entry), FALSE);
+    $this->_render('edit', $data);
   }
 
 }
