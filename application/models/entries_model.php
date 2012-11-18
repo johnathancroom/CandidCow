@@ -16,7 +16,7 @@ class Entries_model extends CI_Model {
     }
     else
     {
-      $entries = $this->db->get('entries')->result_array();
+      $entries = $this->db->order_by('date DESC')->get('entries')->result_array();
       foreach($entries as &$entry)
       {
         $entry = $this->_post_retrieve($entry);
@@ -30,6 +30,13 @@ class Entries_model extends CI_Model {
     $entry = $this->_post_retrieve($entry);
 
     return $entry;
+  }
+
+  function logo_color() {
+    $logo_colors = array('#e35858', '#52a594', '#7870c3', '#528e4c', '#f29632', '#588e96', '#b26592');
+    $number_of_entries = $this->db->where(array('date <=' => date('Y-m-d')))->from('entries')->count_all_results();
+
+    return $logo_colors[$number_of_entries % 7];
   }
 
   function insert($array) {

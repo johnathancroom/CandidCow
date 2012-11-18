@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller {
   function _render($view, $data = array(), $layout = TRUE, $auto_find = TRUE) {
     $this->load->helper('url');
     $this->load->library('template');
+    $this->load->model('entries_model');
 
     # Get user information
     if($this->croomy_auth->is_logged_in())
@@ -18,6 +19,9 @@ class MY_Controller extends CI_Controller {
       'notice' => $this->session->flashdata('notice'),
       'success' => $this->session->flashdata('success')
     );
+
+    # Get logo color
+    $data['logo_color'] = $this->entries_model->logo_color();
 
     if($layout)
     {

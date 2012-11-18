@@ -14,7 +14,7 @@
   <?= $template['metadata'] ?>
 </head>
 <body>
-  <div class="logo">
+  <div class="logo" style="color: <?= $logo_color; ?>">
     <?= anchor('', 'Lugnuts') ?>
   </div>
 
