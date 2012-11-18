@@ -81,9 +81,9 @@ class Entries_model extends CI_Model {
         'month' => $explode[1],
         'day' => $explode[2]
       );
-
-      return $entry;
     }
+
+    return $entry;
   }
 
   function _prepare_columns($array) {
