@@ -1,4 +1,4 @@
-<?= form_open($this->uri->uri_string()) ?>
+<?= form_open($this->uri->uri_string(), array('class' => 'entries_form')) ?>
   <?
     $fields = array(
       array(

@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?= $template['title'] ?></title>
+  <title><?= $template['title'] ?> | Lugnuts</title>
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
   <?= $template['metadata'] ?>
 </head>
 <body>
+  <div class="logo">
+    Lugnuts
+  </div>
+
   <? if(isset($user)): ?>
     <div>
       Hello, <?= $user['username'] ?>. <?= anchor('auth/logout', 'Logout') ?>
