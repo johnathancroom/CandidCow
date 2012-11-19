@@ -39,6 +39,13 @@ class Entries_model extends CI_Model {
     return $logo_colors[$number_of_entries % 7];
   }
 
+  function new_entry_date()
+  {
+    $last_entry = $this->db->order_by('date DESC')->limit(1)->get('entries')->row_array();
+
+    return strtotime($last_entry['date'])+3600*24;
+  }
+
   function insert($array) {
     if($this->croomy_auth->is_logged_in())
     {

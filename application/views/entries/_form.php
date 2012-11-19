@@ -11,7 +11,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_month',
-          'value' => (isset($entry['date_pieces']['month'])) ? $entry['date_pieces']['month'] : date('m')
+          'value' => (isset($entry['date_pieces']['month'])) ? $entry['date_pieces']['month'] : date('m', $new_entry_date)
         ),
         'options' => month_select_options(),
         'prefix' => '<div>'
@@ -20,7 +20,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_day',
-          'value' => (isset($entry['date_pieces']['day'])) ? $entry['date_pieces']['day'] : date('d')
+          'value' => (isset($entry['date_pieces']['day'])) ? $entry['date_pieces']['day'] : date('d', $new_entry_date)
         ),
         'options' => day_select_options()
       ),
@@ -28,7 +28,7 @@
         'type' => 'dropdown',
         'attributes' => array(
           'name' => 'date_year',
-          'value' => (isset($entry['date_pieces']['year'])) ? $entry['date_pieces']['year'] : date('Y')
+          'value' => (isset($entry['date_pieces']['year'])) ? $entry['date_pieces']['year'] : date('Y', $new_entry_date)
         ),
         'options' => year_select_options(2005, 2020),
         'suffix' => '</div>'

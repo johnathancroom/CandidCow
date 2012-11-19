@@ -29,7 +29,7 @@ class Entries extends MY_Controller {
     }
 
     $this->load->helper(array('form', 'form_builder'));
-    $data['form'] = $this->_render('_form', NULL, FALSE);
+    $data['form'] = $this->_render('_form', array('new_entry_date' => $this->entries_model->new_entry_date()), FALSE);
     $this->_render('create', $data);
   }
 
