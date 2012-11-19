@@ -6,10 +6,6 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
 
   <style type="text/css">
-    <? if(isset($display_entry['css'])): ?>
-      <?= $display_entry['css']; ?>
-    <? endif; ?>
-
     .logo {
       color: <?= $logo_color ?>;
     }
@@ -19,13 +15,17 @@
     a {
       color: <?= $logo_color ?>;
     }
+
+    <? if(isset($display_entry['css'])): ?>
+      <?= $display_entry['css']; ?>
+    <? endif; ?>
   </style>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $template['metadata'] ?>
 </head>
 <body>
-  <div class="logo" style="color: <?= $logo_color; ?>">
+  <div class="logo">
     <?= anchor('', 'CandidCow') ?>
   </div>
 
