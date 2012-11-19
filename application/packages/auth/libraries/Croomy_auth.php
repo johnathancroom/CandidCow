@@ -421,7 +421,7 @@ class Croomy_auth
 						$this->ci->config->item('forgot_password_expire', 'croomy_auth'))) {	// success
 
 					// Clear all user's autologins
-					$this->ci->load->model('croomy_auth/user_autologin');
+					$this->ci->load->model('auth/croomy_auth/user_autologin');
 					$this->ci->user_autologin->clear($user->id);
 
 					return array(
@@ -616,7 +616,7 @@ class Croomy_auth
 		$this->ci->load->helper('cookie');
 		$key = substr(md5(uniqid(rand().get_cookie($this->ci->config->item('sess_cookie_name')))), 0, 16);
 
-		$this->ci->load->model('croomy_auth/user_autologin');
+		$this->ci->load->model('auth/croomy_auth/user_autologin');
 		$this->ci->user_autologin->purge($user_id);
 
 		if ($this->ci->user_autologin->set($user_id, md5($key))) {
@@ -642,7 +642,7 @@ class Croomy_auth
 
 			$data = unserialize($cookie);
 
-			$this->ci->load->model('croomy_auth/user_autologin');
+			$this->ci->load->model('auth/croomy_auth/user_autologin');
 			$this->ci->user_autologin->delete($data['user_id'], md5($data['key']));
 
 			delete_cookie($this->ci->config->item('autologin_cookie_name', 'croomy_auth'));
@@ -665,7 +665,7 @@ class Croomy_auth
 
 				if (isset($data['key']) AND isset($data['user_id'])) {
 
-					$this->ci->load->model('croomy_auth/user_autologin');
+					$this->ci->load->model('auth/croomy_auth/user_autologin');
 					if (!is_null($user = $this->ci->user_autologin->get($data['user_id'], md5($data['key'])))) {
 
 						// Login user
@@ -703,7 +703,7 @@ class Croomy_auth
 	function is_max_login_attempts_exceeded($login)
 	{
 		if ($this->ci->config->item('login_count_attempts', 'croomy_auth')) {
-			$this->ci->load->model('croomy_auth/login_attempts');
+			$this->ci->load->model('auth/croomy_auth/login_attempts');
 			return $this->ci->login_attempts->get_attempts_num($this->ci->input->ip_address(), $login)
 					>= $this->ci->config->item('login_max_attempts', 'croomy_auth');
 		}
@@ -721,7 +721,7 @@ class Croomy_auth
 	{
 		if ($this->ci->config->item('login_count_attempts', 'croomy_auth')) {
 			if (!$this->is_max_login_attempts_exceeded($login)) {
-				$this->ci->load->model('croomy_auth/login_attempts');
+				$this->ci->load->model('auth/croomy_auth/login_attempts');
 				$this->ci->login_attempts->increase_attempt($this->ci->input->ip_address(), $login);
 			}
 		}
@@ -737,7 +737,7 @@ class Croomy_auth
 	private function clear_login_attempts($login)
 	{
 		if ($this->ci->config->item('login_count_attempts', 'croomy_auth')) {
-			$this->ci->load->model('croomy_auth/login_attempts');
+			$this->ci->load->model('auth/croomy_auth/login_attempts');
 			$this->ci->login_attempts->clear_attempts(
 					$this->ci->input->ip_address(),
 					$login,
