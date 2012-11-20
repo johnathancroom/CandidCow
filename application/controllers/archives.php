@@ -10,7 +10,7 @@ class Archives extends MY_Controller {
 
   function index()
   {
-    $data['entries'] = $this->entries_model->get();
+    $data['entries'] = $this->entries_model->archives();
     $this->_render('index', $data);
   }
 

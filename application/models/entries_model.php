@@ -25,6 +25,15 @@ class Entries_model extends CI_Model {
     }
   }
 
+  function archives() {
+    $entries = $this->db->order_by('date DESC')->get_where('entries', array('date <=' => date('Y-m-d')))->result_array();
+    foreach($entries as &$entry)
+    {
+      $entry = $this->_post_retrieve($entry);
+    }
+    return $entries;
+  }
+
   function today() {
     $entry = $this->db->get_where('entries', array('date' => date('Y-m-d')))->row_array();
     $entry = $this->_post_retrieve($entry);
