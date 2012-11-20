@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title><?= $template['title'] ?> | CandidCow</title>
-  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/stylesheets/style-<?= md5_file('assets/stylesheets/style.css') ?>.css">
 
   <style type="text/css">
     .logo {
