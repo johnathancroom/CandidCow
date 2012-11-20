@@ -1,5 +1,7 @@
 <?
 header('Content-type: text/css');
+header("Last-Modified: ".gmdate('D, d M Y H:i:s', filemtime($_GET['file']))." GMT");
+header("Expires: ".gmdate('D, d M Y H:i:s', (filemtime($_GET['file']) + 691200))." GMT");
 
 ob_start('ob_gzhandler');
 ob_start('compress');
