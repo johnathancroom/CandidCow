@@ -37,6 +37,14 @@ a {
   z-index: -1;
 }
 
+.archives {
+  text-align: center;
+}
+.archives ul {
+  list-style: none;
+  padding: 0;
+}
+
 @font-face {
     font-family: 'desyrelregular';
     src: url('/assets/fonts/desyrel-webfont.eot');
@@ -89,6 +97,8 @@ blockquote footer {
 }
 footer {
   color: #bababa;
+}
+footer.byline {
   text-align: right;
 }
 footer a {

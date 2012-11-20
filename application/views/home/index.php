@@ -6,10 +6,3 @@
     <footer>&ndash;CandidCow</footer>
   </blockquote>
 <? endif; ?>
-
-<footer>
-  <div>
-    By&#58; <a href="http://twitter.com/johnathancroom">Johnathan</a>
-     &amp; <a href="http://twitter.com/itsjustkarissa">Karissa</a>
-  </div>
-</footer>

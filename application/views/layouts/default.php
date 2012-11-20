@@ -54,6 +54,14 @@
 
   <?= $template['body'] ?>
 
+  <footer>
+  <?= anchor('archives', 'Archives') ?>
+  </footer>
+
+  <footer class="byline">
+    By <?= anchor('http://twitter.com/johnathancroom', 'Johnathan') ?> &amp; <?= anchor('http://twitter.com/itsjustkarissa', 'Karissa') ?>
+  </footer>
+
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-22645449-13']);
