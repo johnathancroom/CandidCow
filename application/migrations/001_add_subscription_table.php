@@ -17,10 +17,11 @@ class Migration_Add_subscription_table extends CI_Migration {
       ),
       'active' => array(
         'type' => 'INT',
-        'constraint' => 1
+        'constraint' => 1,
+        'default' => 1
       ),
       'created_at' => array(
-        'type' => 'DATE'
+        'type' => 'DATETIME'
       )
     ));
 
