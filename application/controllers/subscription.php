@@ -4,6 +4,15 @@ class Subscription extends MY_Controller {
 
   function index()
   {
+    $this->load->model('subscription_model');
+
+    $post = $this->input->post(NULL, TRUE);
+
+    if($post)
+    {
+
+    }
+
     $this->load->helper(array('form', 'form_builder'));
     $this->_render('index');
   }
