@@ -94,6 +94,7 @@ blockquote footer {
 }
 .floating-footer footer {
   float: left;
+  margin: 20px 0;
   width: 50%;
 }
 .floating-footer footer {
@@ -105,4 +106,21 @@ blockquote footer {
 footer a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  .logo {
+    text-align: center;
+  }
+  .admin {
+    margin-top: 10px;
+    position: static;
+    text-align: center;
+  }
+  .floating-footer footer,
+  .floating-footer .byline {
+    margin: 0 0 10px;
+    text-align: center;
+    width: 100%;
+  }
 }
