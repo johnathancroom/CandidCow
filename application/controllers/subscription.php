@@ -2,16 +2,19 @@
 
 class Subscription extends MY_Controller {
 
+  function __construct() {
+    parent::__construct();
+    $this->load->model('subscription_model');
+    $this->load->helper(array('url', 'form', 'form_builder'));
+  }
+
   function index()
   {
-    $this->load->helper('url');
-    $this->load->model('subscription_model');
-
     $post = $this->input->post(NULL, TRUE);
 
     if($post)
     {
-      if($this->subscription_model->insert($post))
+      if($this->subscription_model->insert($post['email']))
       {
         $this->session->set_flashdata('success', 'Thanks so much for subscribing to the daily email!');
 
@@ -32,8 +35,30 @@ class Subscription extends MY_Controller {
       redirect($this->uri->uri_string());
     }
 
-    $this->load->helper(array('form', 'form_builder'));
-    $this->_render('index');
+    $data['form'] = $this->_render('_form', NULL, FALSE);
+    $this->_render('index', $data);
+  }
+
+  function cancel()
+  {
+    $post = $this->input->post(NULL, TRUE);
+
+    if($post)
+    {
+      if($this->subscription_model->unsubscribe($post['email']))
+      {
+        $this->session->set_flashdata('success', 'You have been unsubscribed from future emails. See ya!');
+      }
+      else
+      {
+        $this->session->set_flashdata('error', 'Something went wrong. Please try again');
+      }
+
+      redirect($this->uri->uri_string());
+    }
+
+    $data['form'] = $this->_render('_form', NULL, FALSE);
+    $this->_render('cancel', $data);
   }
 
 }

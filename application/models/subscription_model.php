@@ -17,21 +17,32 @@ class Subscription_model extends CI_Model {
     }
   }
 
-  function insert($array)
+  function insert($email)
   {
-    $email = $this->get($array['email']);
+    $exists = $this->get($email);
 
-    if(empty($email))
+    if(empty($exists))
     {
       return $this->db->insert('subscriptions', array(
-        'email' => $array['email'],
+        'email' => $email,
         'created_at' => date('Y-m-d H:i:s')
       ));
     }
     else
     {
+      # Resubscribe
+      if(!$exists['active'])
+      {
+        return $this->db->where('email', $email)->update('subscriptions', array('active' => 1));
+      }
+
       # Don’t show error on duplicate email entry
       return true;
     }
+  }
+
+  function unsubscribe($email)
+  {
+    return $this->db->where('email', $email)->update('subscriptions', array('active' => 0));
   }
 }
