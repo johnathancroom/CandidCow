@@ -30,7 +30,7 @@ class Subscription_model extends CI_Model {
     }
     else
     {
-      // Don’t show error on duplicate email entry
+      # Don’t show error on duplicate email entry
       return true;
     }
   }
