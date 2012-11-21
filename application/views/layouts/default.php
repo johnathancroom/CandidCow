@@ -15,6 +15,9 @@
     a {
       color: <?= $logo_color ?>;
     }
+    .subscription input[type=submit] {
+      background-color: <?= $logo_color ?>;
+    }
 
     <? if(isset($display_entry['css'])): ?>
       <?= $display_entry['css']; ?>
@@ -56,7 +59,7 @@
 
   <div class="floating-footer">
     <footer>
-    <?= anchor('archives', 'Archives') ?>
+    <?= anchor('archives', 'Archives') ?> &middot; <?= anchor('subscription', 'Daily Email') ?>
     </footer>
 
     <footer class="byline">

@@ -92,6 +92,39 @@ blockquote footer {
   padding-top: 4px;
   text-align: right;
 }
+.subscription {
+  margin: 0 auto 20px;
+  max-width: 500px;
+}
+.subscription hr {
+  border: none;
+  border-bottom: 1px dotted #ccc;
+  margin: 20px 0;
+}
+.subscription label {
+  display: block;
+}
+.subscription input {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 12px;
+}
+.subscription input[type=text] {
+  padding: 10px;
+  width: 70%;
+}
+.subscription input[type=submit] {
+  -webkit-appearance: none;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  text-shadow: 1px 1px 1px #000;
+  width: 30%;
+}
+.subscription input[type=submit]:hover {
+  cursor: pointer;
+}
 .floating-footer footer {
   float: left;
   margin: 20px 0;
