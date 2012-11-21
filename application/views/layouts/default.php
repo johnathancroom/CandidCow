@@ -54,13 +54,15 @@
 
   <?= $template['body'] ?>
 
-  <footer>
-  <?= anchor('archives', 'Archives') ?>
-  </footer>
+  <div class="floating-footer">
+    <footer>
+    <?= anchor('archives', 'Archives') ?>
+    </footer>
 
-  <footer class="byline">
-    By <?= anchor('http://twitter.com/johnathancroom', 'Johnathan') ?> &amp; <?= anchor('http://twitter.com/itsjustkarissa', 'Karissa') ?>
-  </footer>
+    <footer class="byline">
+      By <?= anchor('http://twitter.com/johnathancroom', 'Johnathan') ?> &amp; <?= anchor('http://twitter.com/itsjustkarissa', 'Karissa') ?>
+    </footer>
+  </div>
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
