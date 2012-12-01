@@ -92,6 +92,12 @@ blockquote footer {
   padding-top: 4px;
   text-align: right;
 }
+blockquote img {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  margin: 0 4%;
+  max-width: 92%;
+}
 .subscription {
   margin: 0 auto 20px;
   max-width: 500px;
