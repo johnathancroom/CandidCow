@@ -13,6 +13,12 @@ class Entries extends MY_Controller {
   function index() {
     $data['entries'] = $this->entries_model->get();
 
+    $data['entries_by_month'] = array();
+    for($i = 0; $i < count($data['entries']); ++$i)
+    {
+      $data['entries_by_month'][date('F Y', strtotime($data['entries'][$i]['date']))][] = $data['entries'][$i];
+    }
+
     $this->_render('index', $data);
   }
 

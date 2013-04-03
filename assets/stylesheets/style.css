@@ -26,6 +26,13 @@ a {
   font-size: 18px;
   margin-top: 10px;
 }
+.entries_list {
+  list-style: none;
+  padding: 0;
+}
+.entries_month h2 {
+  margin: 20px 0 3px 0;
+}
 .admin {
   position: absolute;
   right: 20px;
