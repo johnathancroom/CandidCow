@@ -7,7 +7,7 @@
 
     <? foreach($entries as $entry): ?>
       <li>
-        <?= date('dS', strtotime($entry['date'])) ?>
+        <?= date('jS', strtotime($entry['date'])) ?>
         <?= anchor('entries/edit/'.$entry['id'], 'Edit') ?>
         <?= anchor('entries/preview/'.$entry['id'], 'Preview') ?>
         <?= anchor('entries/delete/'.$entry['id'], 'Delete') ?>
