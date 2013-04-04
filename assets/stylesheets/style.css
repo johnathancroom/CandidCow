@@ -30,7 +30,8 @@ a {
   list-style: none;
   padding: 0;
 }
-.entries_month h2 {
+.entries_month h2,
+.entries_month h3 {
   margin: 20px 0 3px 0;
 }
 .admin {
